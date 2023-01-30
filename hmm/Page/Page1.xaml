@@ -1,0 +1,22 @@
+﻿<Page x:Class="hmm.Page.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:hmm.Page"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page1">
+
+    <Grid Margin="0,10,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="163*"/>
+            <ColumnDefinition Width="37*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="Table"
+                  ItemsSource="{Binding items, UpdateSourceTrigger=PropertyChanged}"
+                  RowEditEnding="Table_RowEditEnding" PreviewKeyDown="Table_PreviewKeyDown" CanUserAddRows="False"/>
+        <Button Content="Добавить" Click="Button_Click" Margin="4,10,10,345" Grid.Column="1"/>
+        <Button Content="Таблица acc" Click="Button_Click_1" Margin="5,100,9,255" Grid.Column="1"/>
+    </Grid>
+</Page>
