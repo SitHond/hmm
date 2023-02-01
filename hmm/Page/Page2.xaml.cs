@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Threading;
 
 namespace hmm.Page
 {
@@ -34,6 +25,7 @@ namespace hmm.Page
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("items"));
             }
         }
+
         private SqlDataAdapter adapter;
         public Page2()
         {
@@ -57,8 +49,8 @@ namespace hmm.Page
         {
             DataRow newrow = items.NewRow();
 
-            newrow["PERSONS"] = "2323";
-            newrow["COMM"] = ">.<";
+            newrow["PERSONS"] = "1GG";
+            newrow["COMM"] = "-.-";
 
             items.Rows.Add(newrow);
             adapter.Update(items);
@@ -86,6 +78,11 @@ namespace hmm.Page
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Page2());
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Page3());
         }
