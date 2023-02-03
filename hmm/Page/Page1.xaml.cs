@@ -32,12 +32,12 @@ namespace hmm.Page
             InitializeComponent();
             this.DataContext = this;
             items = new DataTable();
-            adapter = new SqlDataAdapter("SELECT * FROM HOME", "Server=SITHOND\\SQLEXPRESS;Database=tested_bd;Trusted_Connection=True;");
+            adapter = new SqlDataAdapter("SELECT * FROM books", "Server=K19-11\\SQLEXPRESS;Database=lib;Trusted_Connection=True;");
             adapter.Fill(items);
 
             items.PrimaryKey = new DataColumn[1] { items.Columns["ID"] };
             items.Columns["ID"].AutoIncrement = true;
-            items.Columns["ID"].AutoIncrementSeed = int.Parse(items.Select().Max(x => x["ID"]).ToString()) + 1;
+            items.Columns["ID"].AutoIncrementSeed = int.Parse(items.Select().Max(x => x["ID"]).ToString() + 1);
 
             SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
 
@@ -50,8 +50,12 @@ namespace hmm.Page
         {
             DataRow newrow = items.NewRow();
 
-            newrow["HOMES"] = "1GG";
-            newrow["ADDRES"] = "-.-";
+            newrow["NAMEBOOKS"] = "dfdf";
+            newrow["AUTHOR"] = "dfdfd";
+            newrow["YEARS"] = "author";
+            newrow["ILLSAMNT"] = "10";
+            newrow["PGAMNT"] = "1";
+            newrow["COUNTS"] = "1";
 
             items.Rows.Add(newrow);
             adapter.Update(items);
@@ -62,7 +66,7 @@ namespace hmm.Page
         private void update()
         {
             Thread.Sleep(30);
-            adapter.Update(items);
+            _ = adapter.Update(items);
         }
 
         private void Table_PreviewKeyDown(object sender, KeyEventArgs e)

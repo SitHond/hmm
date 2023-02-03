@@ -31,7 +31,7 @@ namespace hmm.Page
             InitializeComponent();
             this.DataContext = this;
             items = new DataTable();
-            adapter = new SqlDataAdapter("SELECT * FROM PHONE", "Server=SITHOND\\SQLEXPRESS;Database=tested_bd;Trusted_Connection=True;");
+            adapter = new SqlDataAdapter("SELECT * FROM NumerInfo", "Server=K19-11\\SQLEXPRESS;Database=lib;Trusted_Connection=True;");
             adapter.Fill(items);
 
             items.PrimaryKey = new DataColumn[1] { items.Columns["ID"] };
@@ -48,8 +48,9 @@ namespace hmm.Page
         {
             DataRow newrow = items.NewRow();
 
-            newrow["PHONES"] = "2323";
-            newrow["MODELS"] = ">.<";
+            newrow["LIBBOOKSITEM"] = "2323";
+            newrow["LIBSTUDENTITEM"] = "222";
+            newrow["LIBFACULTYITEM"] = "2323";
 
             items.Rows.Add(newrow);
             adapter.Update(items);
@@ -60,7 +61,7 @@ namespace hmm.Page
         private void update()
         {
             Thread.Sleep(30);
-            adapter.Update(items);
+            _ = adapter.Update(items);
         }
 
         private void Table_PreviewKeyDown(object sender, KeyEventArgs e)

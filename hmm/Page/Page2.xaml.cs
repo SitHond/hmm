@@ -32,7 +32,7 @@ namespace hmm.Page
             InitializeComponent();
             this.DataContext = this;
             items = new DataTable();
-            adapter = new SqlDataAdapter("SELECT * FROM PERSON", "Server=SITHOND\\SQLEXPRESS;Database=tested_bd;Trusted_Connection=True;");
+            adapter = new SqlDataAdapter("SELECT * FROM LibraryInfo", "Server=K19-11\\SQLEXPRESS;Database=lib;Trusted_Connection=True;");
             adapter.Fill(items);
 
             items.PrimaryKey = new DataColumn[1] { items.Columns["ID"] };
@@ -49,11 +49,11 @@ namespace hmm.Page
         {
             DataRow newrow = items.NewRow();
 
-            newrow["PERSONS"] = "1GG";
-            newrow["COMM"] = "-.-";
+            newrow["NAMEPUBHOUSE"] = "1GG";
+            newrow["LIBNAMEGEOLITEM"] = "-.-";
 
             items.Rows.Add(newrow);
-            adapter.Update(items);
+            _ = adapter.Update(items);
         }
         private void Table_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e) =>
            new Thread(() => update()).Start();

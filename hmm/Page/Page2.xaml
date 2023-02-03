@@ -24,9 +24,9 @@
                 <RowDefinition Height="175*"/>
             </Grid.RowDefinitions>
             <Button Content="Добавить" Click="Button_Click" Margin="7,10,7,13"/>
-            <Button Content="HOME" Click="Button_Click_1" Margin="4,10,10,23" Grid.Row="1"/>
-            <Button Content="PERSON" Click="Button_Click_2" Margin="4,10,10,21" Grid.Row="2"/>
-            <Button Content="PHONE" Click="Button_Click_3" Margin="7,10,7,107" Grid.Row="3"/>
+            <Button Content="Книги" Click="Button_Click_1" Margin="4,10,10,23" Grid.Row="1"/>
+            <Button Content="Библ инфо" Click="Button_Click_2" Margin="4,10,10,21" Grid.Row="2"/>
+            <Button Content="Кол-во инфо" Click="Button_Click_3" Margin="7,10,7,107" Grid.Row="3"/>
         </Grid>
     </Grid>
 </Page>
